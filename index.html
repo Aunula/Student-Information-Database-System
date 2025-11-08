@@ -4,7 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ABCD University</title>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 
     <!-- daisyui & tailwindcss -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
@@ -17,7 +24,8 @@
 
 <body>
     <header>
-        <div class="navbar bg-base-100 shadow-sm">
+        <div class="navbar sticky top-0 z-50 shadow-md bg-gradient-to-r from-white to-blue-100 px-10">
+
             <div class="navbar-start">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -28,7 +36,7 @@
                         </svg>
                     </div>
                     <ul tabindex="-1"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li><a>Item 1</a></li>
                         <li>
                             <a>Parent</a>
@@ -40,16 +48,19 @@
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-ghost text-xl">ABCD University</a>
+                <a class="btn btn-ghost text-xl font-bold text-blue-800">ABCD University</a>
             </div>
+
             <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
+                <ul class="menu menu-horizontal space-x-15 font-medium text-gray-800">
                     <li><a>Home</a></li>
                     <li><a>About</a></li>
+
                     <li>
                         <details>
-                            <summary>Information</summary>
-                            <ul class="p-2">
+                            <summary class="hover:bg-blue-200/50 rounded-lg px-3 py-2 cursor-pointer">Information
+                            </summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                                 <li><a>Department</a></li>
                                 <li><a>Cources</a></li>
                                 <li><a>Teacher</a></li>
@@ -60,21 +71,24 @@
                     </li>
                     <li>
                         <details>
-                            <summary>Facilities</summary>
-                            <ul class="p-2">
+                            <summary class="hover:bg-blue-200/50 rounded-lg px-3 py-2 cursor-pointer">Facilities
+                            </summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                                 <li><a>Lab</a></li>
                                 <li><a>Library</a></li>
-                                <li><a>Teacher</a></li>
-                                <li><a>Result</a></li>
-                                <li><a>Routine</a></li>
+                                <li><a>Sports</a></li>
+                                <li><a>Club</a></li>
+                                <li><a>Cultural Forum</a></li>
                             </ul>
                         </details>
                     </li>
-                    <li><a>Contact</a></li>
+
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
+
             <div class="navbar-end">
-                <a class="btn">Login</a>
+                <a href="login/login.html" class="btn btn-primary text-white">Login</a>
             </div>
         </div>
     </header>
@@ -82,17 +96,16 @@
     <!-- main section -->
 
     <main>
-        <div class="hero min-h-screen"
-            style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+        <div class="hero min-h-screen" style="background-image:url(image/heroimages.jpeg);">
             <div class="hero-overlay"></div>
             <div class="hero-content text-neutral-content text-center">
                 <div class="max-w-md">
-                    <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
+                    <h1 class="mb-5 text-5xl font-bold">Welcome to ABCD University Student Portal</h1>
                     <p class="mb-5">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
+                        A fast, reliable source for students, faculty, and guardians to access routines, results, course
+                        materials, and academic notices. Click 'Explore More' to find the information you need.
                     </p>
-                    <button class="btn btn-primary">Explore More</button>
+                    <a href="login/login.html" class="btn btn-primary">Explore More</a>
                 </div>
             </div>
         </div>
@@ -100,20 +113,20 @@
 
     <!-- footer -->
 
-    <footer class="footer sm:footer-horizontal bg-base-300 text-base-content p-10">
+    <footer class="footer sm:footer-horizontal bg-base-300 text-base-content py-10 px-15">
         <nav>
-            <h6 class="footer-title">Services</h6>
-            <a class="link link-hover">Branding</a>
-            <a class="link link-hover">Design</a>
-            <a class="link link-hover">Marketing</a>
-            <a class="link link-hover">Advertisement</a>
+            <h6 class="footer-title">Academics</h6>
+            <a class="link link-hover">Departments</a>
+            <a class="link link-hover">Admissions</a>
+            <a class="link link-hover">Results</a>
+            <a class="link link-hover">Academic Calendar</a>
         </nav>
         <nav>
-            <h6 class="footer-title">Company</h6>
-            <a class="link link-hover">About us</a>
-            <a class="link link-hover">Contact</a>
-            <a class="link link-hover">Jobs</a>
-            <a class="link link-hover">Press kit</a>
+            <h6 class="footer-title">Quick Links</h6>
+            <a class="link link-hover">Student Portal</a>
+            <a class="link link-hover">Notice Board</a>
+            <a class="link link-hover">Contact Us</a>
+            <a class="link link-hover">Campus Map</a>
         </nav>
         <nav>
             <h6 class="footer-title">Social</h6>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | ABCD University</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Subtle Gradient Background */
+            background: linear-gradient(135deg, #f7f9ff 0%, #eef2ff 100%); 
+            min-height: 100vh;
+        }
+        /* Smooth Blue Focus/Animation on Inputs */
+        .input-focus:focus {
+            --tw-ring-opacity: 0.8;
+            --tw-ring-color: #3b82f6; /* Blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            border-color: #3b82f6;
+            outline: none;
+            transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+        /* Button Hover Effect: Slightly elevated look */
+        .btn-animated {
+            transition: all 0.3s ease-out;
+        }
+        .btn-animated:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="navbar sticky top-0 z-50 shadow-md bg-gradient-to-r from-white to-blue-100 px-10">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="-1"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        <li><a>Home</a></li>
+                        <li><a>About</a></li>
+                        <li><a>Information</a></li>
+                        <li><a>Facilities</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl font-bold text-blue-800">ABCD University</a>
+            </div>
+
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal space-x-2 font-medium text-gray-800">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a>About</a></li>
+
+                    <li>
+                        <details>
+                            <summary class="hover:bg-blue-200/50 rounded-lg px-3 py-2 cursor-pointer">Information
+                            </summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                                <li><a>Department</a></li>
+                                <li><a>Cources</a></li>
+                                <li><a>Teacher</a></li>
+                                <li><a>Result</a></li>
+                                <li><a>Routine</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary class="hover:bg-blue-200/50 rounded-lg px-3 py-2 cursor-pointer">Facilities
+                            </summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                                <li><a>Lab</a></li>
+                                <li><a>Library</a></li>
+                                <li><a>Sports</a></li>
+                                <li><a>Club</a></li>
+                                <li><a>Cultural Forum</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><a>Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-end">
+                <a href="login/login.html" class="btn btn-primary text-white">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-16">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-extrabold text-gray-800 mb-4">Get in Touch with ABCD University 🎓</h1>
+            <p class="text-xl text-gray-600">We are here to answer your questions, suggestions, or concerns. Reach out to us!</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-1 space-y-8 p-8 bg-white rounded-2xl shadow-2xl transition duration-500 transform hover:scale-[1.02]">
+                <h2 class="text-2xl font-bold text-blue-800 mb-6 border-b pb-2">Important Contacts</h2>
+                
+                <div class="flex items-start space-x-4">
+                    <div class="p-3 bg-primary rounded-full text-white mt-1 shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9A1.99 1.99 0 0110.586 20.9L6.343 16.657a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 100-6 3 3 0 000 6z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-700">Main Campus</p>
+                        <p class="text-gray-500">Dhaka Main Road, A B C D University Campus, 1207, Bangladesh</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="p-3 bg-primary rounded-full text-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.5L9.6 7.4A1.9 1.9 0 017 9.5a12.8 12.8 0 004.8 4.8 1.9 1.9 0 012.1-.6L18.5 16h3.5a2 2 0 012 2v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 012-2z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-700">Emergency Hotline</p>
+                        <p class="text-gray-500">+88 010 000 01122 (9 AM - 5 PM)</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="p-3 bg-primary rounded-full text-white shadow-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.848 5.232c.33.22.756.22 1.086 0L21 8m-2-3H5a2 2 0 00-2 2v10a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-700">Official Email</p>
+                        <p class="text-gray-500">info@abcduniversity.edu.bd</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 p-8 bg-white rounded-2xl shadow-2xl transition duration-500 hover:shadow-primary/50">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+                <form action="#" method="POST" class="space-y-4">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="label"><span class="label-text font-medium">Your Full Name</span></label>
+                            <input type="text" placeholder="Enter your full name" class="input input-bordered w-full input-focus" required />
+                        </div>
+                        <div>
+                            <label class="label"><span class="label-text font-medium">Email Address</span></label>
+                            <input type="email" placeholder="email@example.com" class="input input-bordered w-full input-focus" required />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="label"><span class="label-text font-medium">Subject</span></label>
+                        <input type="text" placeholder="E.g., Admission Inquiry or Technical Issue" class="input input-bordered w-full input-focus" required />
+                    </div>
+
+                    <div>
+                        <label class="label"><span class="label-text font-medium">Your Message</span></label>
+                        <textarea class="textarea textarea-bordered h-32 w-full input-focus" placeholder="Type your detailed message here..." required></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="btn btn-primary btn-lg w-full btn-animated">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <section class="container mx-auto px-4 pb-16 pt-8">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Find Our Campus on the Map 📍</h2>
+        <div class="rounded-xl overflow-hidden shadow-2xl transition duration-500 transform hover:scale-[1.01] hover:shadow-primary/50">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116834.0097779301!2d90.3547432!3d23.7808796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087029b43%3A0x5b369c7339560f64!2sDhaka!5e0!3m2!1sen!2sbd!4v1700000000000!5m2!1sen!2sbd" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <footer class="footer p-10 bg-base-200 text-base-content border-t border-gray-200">
+        
+        <nav>
+            <header class="footer-title text-blue-700 font-bold">Academics</header> 
+            <a class="link link-hover">Departments</a>
+            <a class="link link-hover">Admissions</a>
+            <a class="link link-hover">Results</a>
+            <a class="link link-hover">Academic Calendar</a>
+            <a class="link link-hover">Library</a>
+        </nav> 
+        
+        <nav>
+            <header class="footer-title text-blue-700 font-bold">Quick Links</header> 
+            <a class="link link-hover">Student Portal</a>
+            <a class="link link-hover">Notice Board</a>
+            <a class="link link-hover">Contact us</a>
+            <a class="link link-hover">Campus Map</a>
+            <a class="link link-hover">Alumni</a>
+        </nav> 
+        
+        <nav>
+            <header class="footer-title text-blue-700 font-bold">Information & Social</header> 
+            <a class="link link-hover">About us</a>
+            <a class="link link-hover">Administration</a>
+            <a class="link link-hover">Careers</a>
+            <a class="link link-hover">Privacy Policy</a>
+            <div class="grid grid-flow-col gap-4 mt-2">
+                <a class="text-gray-600 hover:text-blue-500 transition"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.596-4.788 6.086C6.543 8.302 3.468 6.689 1.431 4.324c-.366.624-.575 1.355-.575 2.119 0 1.631.83 3.066 2.094 3.899-.775-.024-1.504-.237-2.143-.593v.064c0 2.277 1.621 4.178 3.774 4.61a4.909 4.909 0 01-2.138.082c.6 1.865 2.336 3.223 4.397 3.262-1.61 1.263-3.642 2.016-5.85 2.016-.38 0-.755-.022-1.124-.066 2.083 1.338 4.563 2.119 7.229 2.119 8.677 0 13.42-7.199 13.42-13.42 0-.203-.005-.405-.014-.606A9.605 9.605 0 0024 4.557z"></path></svg></a>
+                <a class="text-gray-600 hover:text-red-600 transition"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.516 3.42.062 6.13.062 12s.454 8.58 4.323 8.816c3.6.245 11.626.246 15.23 0C23.484 20.58 23.938 17.87 23.938 12s-.454-8.58-4.323-8.816zM9.75 15.6V8.4l6.5 3.6-6.5 3.6z"></path></svg></a>
+                <a class="text-gray-600 hover:text-blue-700 transition"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v2.385z"></path></svg></a>
+            </div>
+        </nav>
+        
+    </footer>
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content border-t border-gray-300">
+        <aside>
+            <p>Copyright © 2025 - All rights reserved by ABCD University</p>
+        </aside>
+    </footer>
+
+</body>
+</html>
