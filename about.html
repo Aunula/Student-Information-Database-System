@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABCD University - Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        tailwind = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans">
+    <header>
+        <div class="navbar sticky top-0 z-50 shadow-lg bg-gradient-to-r from-white to-blue-50 px-5 md:px-10">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li>
+                            <a>Information</a>
+                            <ul class="p-2">
+                                <li><a href="login/login.html">Department</a></li>
+                                <li><a href="login/login.html">Courses</a></li>
+                                <li><a href="login/">Teacher</a></li>
+                                <li><a href="login/login.html">Result</a></li>
+                                <li><a href="login/login.html">Routine</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a>Facilities</a>
+                            <ul class="p-2">
+                                <li><a href="login/login.html">Lab</a></li>
+                                <li><a href="login/login.html">Library</a></li>
+                                <li><a href="login/">Sports</a></li>
+                                <li><a href="login/login.html">Club</a></li>
+                                <li><a href="login/login.html">Cultural Forum</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl font-extrabold text-blue-700 hover:bg-transparent">ABCD University</a>
+            </div>
+
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 font-semibold text-gray-700 space-x-2">
+                    <li><a href="index.html" class="hover:bg-blue-100/70 rounded-lg transition duration-150">Home</a></li>
+                    <li><a href="#" class="hover:bg-blue-100/70 rounded-lg transition duration-150">About</a></li>
+
+                    <li>
+                        <details>
+                            <summary class="hover:bg-blue-100/70 rounded-lg transition duration-150 cursor-pointer">Information</summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Department</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Courses</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Teacher</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Result</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Routine</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Academic Calendar</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary class="hover:bg-blue-100/70 rounded-lg transition duration-150 cursor-pointer">Facilities</summary>
+                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Lab</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Library</a></li>
+                                <li><a href="login/" class="hover:bg-blue-50">Sports</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Club</a></li>
+                                <li><a href="login/login.html" class="hover:bg-blue-50">Cultural Forum</a></li>
+                            </ul>
+                        </details>
+                    </li>
+
+                    <li><a href="contact.html" class="hover:bg-blue-100/70 rounded-lg transition duration-150">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-end">
+                <a href="login/login.html" class="btn btn-primary text-white hover:bg-blue-700 transition duration-150">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 lg:px-20 py-12 space-y-20">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 lg:p-10 bg-white rounded-xl shadow-2xl shadow-blue-100/50 hover:shadow-blue-200 transition duration-300">
+            <div class="md:w-1/2 space-y-4">
+                <h1 class="text-3xl font-extrabold text-blue-600 mb-2">
+                    About ABCD University
+                </h1>
+                <p class="text-gray-700 leading-relaxed">
+                    **ABCD University** is a leading private institution committed to academic excellence and innovation. Established with a vision to foster a community of global citizens, we provide a dynamic learning environment where students can realize their full potential. Our dedication to research, quality teaching, and practical skills development sets us apart.
+                </p>
+                <p class="text-gray-600 italic">
+                    *We are shaping the leaders of tomorrow through holistic education and cutting-edge resources.*
+                </p>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="image/versity.jpg" alt="University Campus Building" class="w-full max-w-sm rounded-lg shadow-xl">
+            </div>
+        </div>
+        
+        <hr class="border-t-2 border-blue-100">
+
+        <div class="flex flex-col-reverse md:flex-row justify-between items-center gap-8 p-6 lg:p-10 bg-white rounded-xl shadow-2xl shadow-blue-100/50 hover:shadow-blue-200 transition duration-300">
+            <div class="md:w-1/2 flex justify-center">
+                 <img src="image/library.jpg" alt="Modern University Library" class="w-full max-w-sm rounded-lg shadow-xl">
+            </div>
+            <div class="md:w-1/2 space-y-4">
+                <h1 class="text-3xl font-extrabold text-blue-600 mb-2">
+                    Our Core Motive
+                </h1>
+                <p class="text-gray-700 leading-relaxed">
+                    Our primary motive is to empower students with **critical thinking skills** and **ethical values** necessary to thrive in a complex global society. We aim to contribute to the nation's development by producing highly skilled professionals and innovative researchers who can drive positive change.
+                </p>
+                <p class="text-gray-600 italic">
+                    *Fostering knowledge, integrity, and social responsibility in every student.*
+                </p>
+            </div>
+        </div>
+
+        <hr class="border-t-2 border-blue-100">
+
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 p-6 lg:p-10 bg-white rounded-xl shadow-2xl shadow-blue-100/50 hover:shadow-blue-200 transition duration-300">
+            <div class="md:w-1/2 space-y-4">
+                <h1 class="text-3xl font-extrabold text-blue-600 mb-2">
+                    A Tradition of Success
+                </h1>
+                <p class="text-gray-700 leading-relaxed">
+                    At ABCD University, we celebrate a strong tradition of student success, from securing top positions in national competitions to making significant strides in their careers. We provide continuous support through career services and alumni networks, ensuring our graduates are well-prepared for the professional world.
+                </p>
+                <p class="text-gray-600 italic">
+                    *Your journey towards a successful future begins here.*
+                </p>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                 <img src="image/graduation.jpg" alt="Graduation Ceremony" class="w-full max-w-sm rounded-lg shadow-xl">
+            </div>
+        </div>
+
+        <hr class="border-t-2 border-blue-100">
+
+        <div class="py-10">
+            <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-12">Status from the Founders</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="flex flex-col items-center p-6 bg-blue-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="w-32 h-32 mb-4">
+                        <img src="image/presi.jpg" alt="Dr. JACK SPARROW, President, ABCD University" class="w-full h-full object-cover rounded-full border-4 border-blue-400">
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-xl font-bold text-gray-800">Dr. JACK SPARROW</h2>
+                        <span class="text-sm text-gray-500 font-medium">(President, ABCD University)</span>
+                        <h4 class="text-lg font-semibold text-yellow-600 mt-3">President's Message:</h4>
+                        <p class="text-gray-700 italic">"We are committed to building a vibrant academic community that pushes the boundaries of knowledge and serves society with dedication."</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center p-6 bg-blue-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="w-32 h-32 mb-4">
+                        <img src="image/vicepre.jpg" alt="Dr. Founder's Name, Vice President, ABCD University" class="w-full h-full object-cover rounded-full border-4 border-blue-400">
+                    </div>
+                    <div class="text-center">
+                        <h2 class="text-xl font-bold text-gray-800">Dr. EDWARD HARPER</h2>
+                        <span class="text-sm text-gray-500 font-medium">(Vice President, ABCD University)</span>
+                        <h4 class="text-lg font-semibold text-yellow-600 mt-3">Vice President's View:</h4>
+                        <p class="text-gray-700 italic">"Our focus remains on delivering quality education and fostering an environment where innovation and creativity flourish."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer bg-gray-800 text-white py-10 px-6 lg:px-20 grid md:grid-cols-4 gap-8">
+        <nav>
+            <h6 class="footer-title text-blue-300">Academics</h6>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Departments</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Admissions</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Results</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Academic Calendar</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title text-blue-300">Quick Links</h6>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Student Portal</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Notice Board</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Contact Us</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Campus Map</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title text-blue-300">Campus & Safety</h6>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Security Services</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Health Services</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Hostel Facilities</a>
+            <a class="link link-hover hover:text-blue-300 transition duration-150">Alumni Network</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title text-blue-300">Social</h6>
+            <div class="grid grid-flow-col gap-4">
+                <a class="hover:text-blue-400 transition duration-150">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="hover:text-red-500 transition duration-150">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="hover:text-blue-600 transition duration-150">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        class="fill-current">
+                        <path
+                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </nav>
+        
+        <div class="md:col-span-4 mt-8 pt-4 border-t border-gray-700 text-center">
+             <p class="text-sm text-gray-400">© 2025 ABCD University. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
