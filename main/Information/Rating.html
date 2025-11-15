@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Facility Rating</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #f39c12;
+            --background-color: #ecf0f1;
+            --card-background: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-color);
+            color: #2c3e50;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .main-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .main-header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .rating-grid {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+
+        .rating-card {
+            background: var(--card-background);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .rating-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .rating-card h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .rating-card p {
+            font-size: 1em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Star Rating Styling */
+        .rating-stars {
+            font-size: 2em;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .rating-stars .star {
+            cursor: pointer;
+            color: #bdc3c7; /* Grey for unrated stars */
+            transition: color 0.2s ease, transform 0.2s ease;
+            margin: 0 5px;
+        }
+
+        /* Hover and Selected Star Animation */
+        .rating-stars .star:hover,
+        .rating-stars .star:hover ~ .star {
+            color: var(--secondary-color); /* Yellow on hover */
+            transform: scale(1.1);
+        }
+
+        /* Color for selected stars */
+        .rating-stars[data-rating] .star {
+            color: var(--secondary-color);
+        }
+
+        .rating-stars .star.rated {
+            color: var(--secondary-color);
+        }
+
+        /* Confirmation Message Styling */
+        .confirmation-message {
+            margin-top: 15px;
+            color: #27ae60; /* Green for success */
+            font-weight: 700;
+            height: 20px; /* To prevent layout shift */
+        }
+        
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .rating-grid {
+                grid-template-columns: 1fr;
+            }
+            .rating-card {
+                padding: 20px;
+            }
+            .main-header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <h1>⭐ Facility & Club Feedback Hub</h1>
+            <p>Please provide your honest rating for each facility and club.</p>
+        </header>
+
+        <div class="rating-grid">
+            <div class="rating-card" data-id="sports">
+                <h2>🏅 Sports Club</h2>
+                <p>The hub for all athletic activities, tournaments, and physical fitness programs on campus. Your rating reflects the quality of equipment, grounds, and event organization.</p>
+                <div class="rating-stars" data-facility="Sports Club">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                <div class="confirmation-message" id="msg-sports"></div>
+            </div>
+
+            <div class="rating-card" data-id="cultural">
+                <h2>🎭 Cultural Club</h2>
+                <p>Responsible for organizing cultural events, music, dance, drama, and celebrating traditional festivals. Rate the diversity of events and engagement opportunities provided.</p>
+                <div class="rating-stars" data-facility="Cultural Club">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                <div class="confirmation-message" id="msg-cultural"></div>
+            </div>
+
+            <div class="rating-card" data-id="computer">
+                <h2>💻 Computer Club</h2>
+                <p>Focuses on coding, technical workshops, hackathons, and promoting IT skills among students. Rate the relevance of workshops and the technical support provided.</p>
+                <div class="rating-stars" data-facility="Computer Club">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                <div class="confirmation-message" id="msg-computer"></div>
+            </div>
+
+            <div class="rating-card" data-id="debate">
+                <h2>🗣️ Debate Club</h2>
+                <p>Encourages public speaking, critical thinking, and structured argumentation through regular practice sessions and inter-university competitions. Rate its impact on skill development.</p>
+                <div class="rating-stars" data-facility="Debate Club">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                <div class="confirmation-message" id="msg-debate"></div>
+            </div>
+
+            <div class="rating-card" data-id="library">
+                <h2>📖 Library Facility</h2>
+                <p>Evaluation of resource availability (books, journals, e-access), study environment, internet access, and helpfulness of the library staff. Your rating reflects the overall study environment.</p>
+                <div class="rating-stars" data-facility="Library Facility">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                <div class="confirmation-message" id="msg-library"></div>
+            </div>
+
+            <div class="rating-card" data-id="cafeteria">
+                <h2>🍽️ Cafeteria</h2>
+                <p>Feedback on food quality, hygiene standards, variety of menu items, and overall service speed and efficiency. Rate your dining experience.</p>
+                <div class="rating-stars" data-facility="Cafeteria">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                <div class="confirmation-message" id="msg-cafeteria"></div>
+            </div>
+
+            <div class="rating-card" data-id="classroom">
+                <h2>💡 Classroom Facility</h2>
+                <p>Rating the physical environment, including air conditioning, seating comfort, projector/audio-visual equipment, and overall cleanliness of the learning spaces.</p>
+                <div class="rating-stars" data-facility="Classroom Facility">
+                    <i class="fas fa-star star" data-value="1"></i>
+                    <i class="fas fa-star star" data-value="2"></i>
+                    <i class="fas fa-star star" data-value="3"></i>
+                    <i class="fas fa-star star" data-value="4"></i>
+                    <i class="fas fa-star star" data-value="5"></i>
+                </div>
+                <div class="confirmation-message" id="msg-classroom"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ratingContainers = document.querySelectorAll('.rating-stars');
+
+            ratingContainers.forEach(container => {
+                const stars = container.querySelectorAll('.star');
+                const facilityName = container.dataset.facility;
+                const messageId = `msg-${container.closest('.rating-card').dataset.id}`;
+                const confirmationMessage = document.getElementById(messageId);
+
+                // Function to update star appearance
+                const updateStars = (ratingValue) => {
+                    stars.forEach(star => {
+                        star.classList.remove('rated');
+                        if (star.dataset.value <= ratingValue) {
+                            star.classList.add('rated');
+                        }
+                    });
+                };
+                
+                // Click Listener (The main action)
+                stars.forEach(star => {
+                    star.addEventListener('click', (e) => {
+                        const rating = e.target.dataset.value;
+                        
+                        // 1. Update stars visually
+                        updateStars(rating);
+                        
+                        // 2. Display confirmation message with animation
+                        confirmationMessage.textContent = `You rated ${facilityName} as ${rating} stars!`;
+                        confirmationMessage.style.opacity = 0;
+                        confirmationMessage.style.transform = 'translateY(10px)';
+                        
+                        // Small animation effect
+                        setTimeout(() => {
+                            confirmationMessage.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                            confirmationMessage.style.opacity = 1;
+                            confirmationMessage.style.transform = 'translateY(0)';
+                        }, 50);
+
+                        // 3. (In a real application, here you would send the data to a server using AJAX/Fetch)
+                        console.log(`Rating Submitted: Facility: ${facilityName}, Rating: ${rating}`);
+                    });
+                    
+                    // Hover Listeners for smooth interaction
+                    star.addEventListener('mouseover', (e) => {
+                        const hoverValue = e.target.dataset.value;
+                        stars.forEach(s => {
+                            // Temporary hover effect (not permanent selection)
+                            if (s.dataset.value <= hoverValue) {
+                                s.style.color = 'var(--secondary-color)';
+                            } else {
+                                s.style.color = '#bdc3c7';
+                            }
+                        });
+                    });
+
+                    star.addEventListener('mouseout', () => {
+                        const currentRating = container.querySelector('.star.rated') ? container.querySelectorAll('.star.rated').length : 0;
+                        updateStars(currentRating); // Reset to current rating color
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

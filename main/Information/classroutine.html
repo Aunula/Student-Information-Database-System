@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Routine - CSE 31 B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Basic Reset and Font Setup */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6; /* Light, smooth background */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to the top, not center vertically */
+            min-height: 100vh;
+        }
+
+        .routine-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Smooth shadow effect */
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Header Styling */
+        .header-content {
+            margin-bottom: 25px;
+        }
+
+        .main-title {
+            font-size: 2.5em;
+            color: #007bff; /* Primary brand color */
+            margin: 0 0 5px 0;
+            font-weight: 700;
+        }
+
+        .sub-title {
+            font-size: 1.5em;
+            color: #555;
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+
+        .semester {
+            font-size: 1.1em;
+            color: #888;
+            margin: 0;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+
+        /* Image Section Styling */
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-caption {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .routine-image {
+            max-width: 100%; /* Ensures responsiveness */
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease-in-out; /* Smooth hover effect */
+        }
+
+        .routine-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Download Button Styling (User-Friendly Design) */
+        .download-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #28a745; /* Green color for action/success */
+            color: white;
+            text-decoration: none;
+            border-radius: 50px; /* Pill-shaped button for a smooth look */
+            font-size: 1.1em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .download-button:hover {
+            background-color: #218838; /* Darker shade on hover */
+            transform: translateY(-2px); /* Slight lift effect */
+        }
+
+        .download-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3);
+        }
+
+        /* Responsive adjustment for smaller screens */
+        @media (max-width: 600px) {
+            .routine-container {
+                padding: 20px;
+            }
+            
+            .main-title {
+                font-size: 2em;
+            }
+
+            .sub-title {
+                font-size: 1.3em;
+            }
+
+            .download-button {
+                width: 90%;
+                padding: 10px;
+            }
+        }
+    </style>
+    </head>
+<body>
+    <div class="routine-container">
+        <header class="header-content">
+            <h1 class="main-title">📚 CLass Routine</h1>
+            <h2 class="sub-title">CSE 31 B</h2>
+            <p class="semester">Fall 25</p>
+        </header>
+
+        <hr>
+
+        <div class="image-section">
+            <p class="image-caption">Here is your detailed class schedule:</p>
+            
+            <img src="routine.jpeg" alt="CSE 31 B Class Routine Fall 25" class="routine-image">
+            
+
+            <a href="routine.jpeg" download="CSE_31_B_Routine_Fall_25.jpg" class="download-button">
+                ⬇️ Download Routine
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

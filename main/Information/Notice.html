@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Notice - ABCD University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Setup */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e9eef2; /* Lighter background for a clean look */
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .notice-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow for notice */
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            border-top: 5px solid #8e44ad; /* University theme color */
+        }
+
+        /* Header and University Details */
+        .header-section {
+            margin-bottom: 30px;
+        }
+
+        .university-name {
+            font-size: 1.8em;
+            color: #8e44ad; /* Main theme color */
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 2.8em;
+            color: #2c3e50;
+            margin: 10px 0 0 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+
+        /* Content and Download Section */
+        .content-section {
+            padding: 10px 0;
+        }
+
+        .notice-message {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        .important-note {
+            font-weight: 600;
+            color: #e74c3c; /* Red for important info */
+            display: block;
+            margin-top: 15px;
+        }
+
+        /* Download Button Styling */
+        .download-pdf-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #3498db; /* Blue color for download action */
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            margin-top: 20px;
+        }
+
+        .download-pdf-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .download-pdf-button:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.4);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .notice-container {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .download-pdf-button {
+                width: 100%;
+                padding: 12px 15px;
+                font-size: 1.1em;
+            }
+            .notice-message {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="notice-container">
+        <header class="header-section">
+            <p class="university-name">**ABCD UNIVERSITY**</p>
+            <h1 class="section-title">📢 Official Notice</h1>
+        </header>
+
+        <hr>
+
+        <div class="content-section">
+            <p class="notice-message">
+                It is hereby informed to all students of CSE 31 B section that the **Final Exam Schedule** has been published. Please download the official PDF copy of the notice below for detailed information regarding exam dates, times, and instructions. All students are advised to check the schedule carefully.
+                <span class="important-note">
+                    Last date for course withdrawal is November 25, 2025.
+                </span>
+            </p>
+
+            <a href="notice.pdf" download="ABCD_University_Final_Exam_Notice.pdf" class="download-pdf-button">
+                ⬇️ Download Official Notice (PDF)
+            </a>
+            
+        </div>
+
+    </div>
+</body>
+</html>

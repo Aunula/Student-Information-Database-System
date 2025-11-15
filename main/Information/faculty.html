@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Directory - Modern UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #007bff; /* Vibrant Blue */
+            --secondary-color: #28a745; /* Green Accent for clarity */
+            --background-color: #f4f7f9;
+            --card-background: #ffffff;
+            --text-color: #343a40;
+            --light-grey: #e9ecef;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px;
+            background: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Refined Header Styles */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-section h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 800;
+            font-size: 3em;
+            letter-spacing: -1px;
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .header-section h1::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .header-section p {
+            font-size: 1.1em;
+            color: #6c757d;
+            margin-top: 15px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.6;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Faculty Grid/List Styles */
+        #faculty-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px;
+            margin-bottom: 40px;
+            min-height: 800px; 
+        }
+
+        .member-card {
+            text-align: center;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: var(--card-background);
+            border: 1px solid var(--light-grey);
+            transition: transform 0.4s cubic-bezier(0.2, 0.5, 0.2, 1), box-shadow 0.4s ease;
+            opacity: 0; 
+            animation: slideUp 0.6s forwards;
+            position: relative;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.15); /* Primary color shadow */
+        }
+
+        .member-photo {
+            width: 130px;
+            height: 130px;
+            /* Key Style for Circle Shape */
+            border-radius: 50%; 
+            /* End Key Style */
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid var(--primary-color);
+            transition: border-color 0.4s ease;
+        }
+
+        .member-card:hover .member-photo {
+            border-color: var(--secondary-color);
+        }
+
+        .member-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 10px 0 5px 0;
+            line-height: 1.2;
+        }
+
+        .member-designation {
+            font-size: 0.95em;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .member-department {
+            font-size: 0.9em;
+            color: #6c757d;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background-color: var(--light-grey);
+            display: inline-block;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Pagination Styles - Compact and Informative */
+        .pagination-container {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Space between elements */
+            background: var(--light-grey);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        .pagination-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .pagination-btn:disabled {
+            background-color: #adb5bd;
+            color: #f8f9fa;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            font-size: 1em;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .page-number {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin: 0 5px;
+        }
+        
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            #faculty-list {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header-section h1 {
+                font-size: 2em;
+            }
+            .header-section p {
+                font-size: 1em;
+            }
+            #faculty-list {
+                grid-template-columns: 1fr; 
+            }
+            .pagination-container {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    
+    <header class="header-section">
+        <h1>Faculty & Academic Leadership</h1>
+        <p>
+            Meet the distinguished members of our academic and administrative team who guide our students and shape the university's future. Utilize the pagination below to browse all profiles.
+        </p>
+    </header>
+    
+    <div id="faculty-list">
+        </div>
+
+    <div class="pagination-container">
+        <button id="prev-btn" class="pagination-btn">
+            <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <span class="page-info">
+            Showing Page <span id="current-page" class="page-number">1</span> of <span id="total-pages" class="page-number"></span>
+        </span>
+        <button id="next-btn" class="pagination-btn">
+            Next <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+</div>
+
+<script>
+    // --- 1. Dummy Data (Total 20 members) ---
+    const facultyData = [
+        { pic: 'tchr.jpg', name: 'Prof. Dr. XYZ Choudhury', designation: 'Vice-Chancellor (VC)', department: 'Administration' },
+        { pic: 'tchr.jpg', name: 'Prof. Dr. M A K Khan', designation: 'Dean (DN) - Engineering', department: 'Faculty of Engineering' },
+        { pic: 'tchr.jpg', name: 'Dr. Afia Sultana', designation: 'Chairperson', department: 'Computer Science & Eng.' },
+        { pic: 'tchr.jpg', name: 'Prof. Jafar Imam', designation: 'Professor', department: 'Computer Science & Eng.' },
+        { pic: 'tchr.jpg', name: 'Dr. Shahriar Ahmed', designation: 'Associate Professor', department: 'Electrical & Electronic Eng.' },
+        { pic: 'tchr.jpg', name: 'Eng. Raihan Hossain', designation: 'Assistant Professor', department: 'Civil Engineering' },
+        { pic: 'tchr.jpg', name: 'Ms. Nafisa Khanam', designation: 'Lecturer', department: 'Computer Science & Eng.' },
+        { pic: 'tchr.jpg', name: 'Mr. Arif Mahmud', designation: 'Lecturer', department: 'Computer Science & Eng.' },
+        { pic: 'tchr.jpg', name: 'Mr. Tofail Islam', designation: 'Lecturer', department: 'Mathematics' },
+        { pic: 'tchr.jpg', name: 'Ms. Sadia Rahman', designation: 'Lecturer', department: 'Physics' },
+        { pic: 'tchr.jpg', name: 'Mr. Kamrul Hasan', designation: 'Registrar', department: 'Administration' },
+        { pic: 'tchr.jpg', name: 'Prof. Dr. Nasrin Akter', designation: 'Professor', department: 'English' },
+        { pic: 'tchr.jpg', name: 'Mr. Babul Dey', designation: 'Lecturer', department: 'Business Administration' },
+        { pic: 'tchr.jpg', name: 'Ms. Farhana Yesmin', designation: 'Lecturer', department: 'Computer Science & Eng.' },
+        { pic: 'tchr.jpg', name: 'Dr. Emon Majumdar', designation: 'Assistant Professor', department: 'Mechanical Engineering' },
+        { pic: 'tchr.jpg', name: 'Prof. Dr. Rashed Khan', designation: 'Dean (DN) - Arts', department: 'Faculty of Arts' },
+        { pic: 'tchr.jpg', name: 'Ms. Jannat Sumaiya', designation: 'Lecturer', department: 'Sociology' },
+        { pic: 'tchr.jpg', name: 'Mr. Shuvro Sen', designation: 'Lecturer', department: 'Civil Engineering' },
+        { pic: 'tchr.jpg', name: 'Dr. Taslima Begum', designation: 'Associate Professor', department: 'Chemistry' },
+        { pic: 'tchr.jpg', name: 'Mr. Joynal Abedin', designation: 'Assistant Registrar', department: 'Administration' },
+    ];
+
+    // --- 2. Pagination Variables ---
+    const listElement = document.getElementById('faculty-list');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const currentPageSpan = document.getElementById('current-page');
+    const totalPagesSpan = document.getElementById('total-pages');
+
+    const membersPerPage = 9; // Per page 9 members
+    let currentPage = 1;
+    const totalPages = Math.ceil(facultyData.length / membersPerPage);
+    totalPagesSpan.textContent = totalPages;
+
+    // --- 3. Core Function to Display Data ---
+    function displayList(items, wrapper, rows_per_page, page) {
+        wrapper.innerHTML = ""; // Clear old content
+        page--; // 0-based index adjustment
+
+        const start = rows_per_page * page;
+        const end = start + rows_per_page;
+        const paginatedItems = items.slice(start, end);
+
+        paginatedItems.forEach((member, index) => {
+            const card = document.createElement('div');
+            card.classList.add('member-card');
+            
+            // Add a slight animation delay for sequence effect
+            card.style.animationDelay = `${(index % 9) * 0.1}s`; 
+            
+            // Member Card HTML
+            card.innerHTML = `
+                <img src="${member.pic}" alt="${member.name}" class="member-photo">
+                
+                <h3 class="member-name">${member.name}</h3>
+                <p class="member-designation">${member.designation}</p>
+                <p class="member-department">${member.department}</p>
+            `;
+            wrapper.appendChild(card);
+        });
+        
+        // Scroll to the top of the list when changing page for better UX
+        wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // --- 4. Setup Pagination Buttons ---
+    function setupPagination() {
+        currentPageSpan.textContent = currentPage;
+        
+        // Disable/Enable buttons
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+    }
+
+    // --- 5. Event Listeners ---
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayList(facultyData, listElement, membersPerPage, currentPage);
+            setupPagination();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayList(facultyData, listElement, membersPerPage, currentPage);
+            setupPagination();
+        }
+    });
+
+    // --- 6. Initialize (Shuru kora) ---
+    // Start with the first page
+    displayList(facultyData, listElement, membersPerPage, currentPage);
+    setupPagination();
+
+</script>
+
+</body>
+</html>

@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Registration - ABCD University</title>
 
-        <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
 
-    <!-- daisyui & tailwindcss -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- css -->
-    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <header>
@@ -50,38 +47,11 @@
 
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal space-x-15 font-medium text-gray-800">
-                    <li><a>Home</a></li>
-                    <li><a href="about.html">Some Moments</a></li>
+                    <li><a href="Information/faculty.html">Faculty</a></li>
+                    <li><a href="Information/classroutine.html">Class Routine</a></li>
+                    <li><a href="Information/Notice.html">Notice</a></li>
 
-                    <li>
-                        <details>
-                            <summary class="hover:bg-blue-200/50 rounded-lg px-3 py-2 cursor-pointer">Information
-                            </summary>
-                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                                <li><a href="login/login.html">Department</a></li>
-                                <li><a href="login/login.html">Cources</a></li>
-                                <li><a href="login/login.html">Teacher</a></li>
-                                <li><a href="login/login.html">Result</a></li>
-                                <li><a href="login/login.html">Routine</a></li>
-                                <li><a href="login/login.html" class="hover:bg-blue-50">Academic Calendar</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li>
-                        <details>
-                            <summary class="hover:bg-blue-200/50 rounded-lg px-3 py-2 cursor-pointer">Facilities
-                            </summary>
-                            <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                                <li><a href="login/login.html">Lab</a></li>
-                                <li><a href="login/login.html">Library</a></li>
-                                <li><a href="login/login.html">Sports</a></li>
-                                <li><a href="login/login.html">Club</a></li>
-                                <li><a href="login/login.html">Cultural Forum</a></li>
-                            </ul>
-                        </details>
-                    </li>
-
-                    <li><a href="contact.html">Notice</a></li>
+                    <li><a href="Information/Rating.html">Rating</a></li>
                 </ul>
             </div>
 
@@ -91,8 +61,220 @@
         </div>
     </header>
 
-    <main>
+    <main class="flex justify-center p-6 md:p-10 bg-gray-50 min-h-screen">
         
+        <div class="w-full max-w-4xl form-fade-in">
+            <H1 class="font-bold text-3xl text-center mb-2 text-gray-800">Student Registration</H1>
+            <p class="text-center text-gray-600 mb-8">Please fill out the form below to register.</p>
+
+            <div class="card bg-base-100 shadow-xl border border-gray-200">
+                <div class="card-body p-6 md:p-10">
+                    
+                    <form id="registrationForm" action="/register-student-backend-url" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-medium">Student Name</span>
+                            </label>
+                            <input type="text" id="student_name" name="student_name" placeholder="Enter full name" class="input input-bordered w-full" />
+                            <span id="name_error" class="error-message">Name is required.</span>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-medium">Father's Name</span>
+                            </label>
+                            <input type="text" id="father_name" name="father_name" placeholder="Enter father's full name" class="input input-bordered w-full" />
+                            <span id="father_name_error" class="error-message">Father's name is required.</span>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-medium">Mobile No.</span>
+                            </label>
+                            <input type="tel" id="mobile_no" name="mobile_no" placeholder="e.g., 01700000000" class="input input-bordered w-full" />
+                            <span id="mobile_error" class="error-message">Must be 11 digits (e.g., 017...).</span>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-medium">Department Name</span>
+                            </label>
+                            <select id="department" name="department" class="select select-bordered w-full">
+                                <option disabled selected value="">Select Department</option>
+                                <option value="CSE">Computer Science and Engineering (CSE)</option>
+                                <option value="EEE">Electrical and Electronic Engineering (EEE)</option>
+                                <option value="BBA">Bachelor of Business Administration (BBA)</option>
+                                <option value="ENG">English</option>
+                                <option value="LAW">Law</option>
+                            </select>
+                            <span id="dept_error" class="error-message">Please select a department.</span>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-medium">Batch No.</span>
+                            </label>
+                            <input type="text" id="batch_no" name="batch_no" placeholder="e.g., 29" class="input input-bordered w-full" />
+                            <span id="batch_error" class="error-message">Batch is required.</span>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-medium">Section</span>
+                            </label>
+                            <input type="text" id="section" name="section" placeholder="e.g., A" class="input input-bordered w-full" />
+                            <span id="section_error" class="error-message">Section is required.</span>
+                        </div>
+
+                        <div class="form-control md:col-span-2">
+                            <label class="label">
+                                <span class="label-text font-medium">Roll No.</span>
+                            </label>
+                            <input type="text" id="roll_no" name="roll_no" placeholder="e.g., CSE 0290761" class="input input-bordered w-full" />
+                            <label class="label">
+                                <span class="label-text-alt">Include department prefix (e.g., CSE 0290761)</span>
+                            </label>
+                            <span id="roll_error" class="error-message">Format must be: DEPT 1234567 (e.g., CSE 0290761)</span>
+                        </div>
+
+                        <div class="form-control mt-6 md:col-span-2 text-center">
+                            <button type="submit" class="btn btn-primary btn-wide text-white text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                                Submit Registration
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </main>
+
+    <script>
+        // DOMContentLoaded ইভেন্ট নিশ্চিত করে যে HTML সম্পূর্ণ লোড হওয়ার পরই জাভাস্ক্রিপ্ট রান করবে।
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // ফর্ম এবং ইনপুট ফিল্ডগুলোকে সিলেক্ট করা
+            const form = document.getElementById("registrationForm");
+            const studentName = document.getElementById("student_name");
+            const fatherName = document.getElementById("father_name");
+            const mobileNo = document.getElementById("mobile_no");
+            const department = document.getElementById("department");
+            const batchNo = document.getElementById("batch_no");
+            const section = document.getElementById("section");
+            const rollNo = document.getElementById("roll_no");
+
+            // এরর মেসেজ দেখানোর স্থানগুলো সিলেক্ট করা
+            const nameError = document.getElementById("name_error");
+            const fatherNameError = document.getElementById("father_name_error");
+            const mobileError = document.getElementById("mobile_error");
+            const deptError = document.getElementById("dept_error");
+            const batchError = document.getElementById("batch_error");
+            const sectionError = document.getElementById("section_error");
+            const rollError = document.getElementById("roll_error");
+
+            // 'submit' ইভেন্টে ভ্যালিডেশন ফাংশন কল করা
+            form.addEventListener("submit", (event) => {
+                // প্রথমে ডিফল্ট সাবমিট বন্ধ করা
+                event.preventDefault(); 
+                
+                // ভ্যালিডেশন চেক শুরু করা
+                let isValid = validateForm(); 
+
+                // যদি সবকিছু ঠিক থাকে (isValid == true), তবেই ফর্ম সাবমিট করা
+                if (isValid) {
+                    console.log("Form is valid. Submitting...");
+                    // এখানে আপনি চাইলে form.submit() কল করতে পারেন অথবা AJAX দিয়ে ডেটা পাঠাতে পারেন।
+                    // রিয়েল সাবমিশনের জন্য নিচের লাইনটি আনকমেন্ট করুন:
+                    // form.submit(); 
+                    
+                    // আপাতত শুধু একটি অ্যালার্ট দেখাচ্ছি যে ফর্ম ভ্যালিড।
+                    alert("Registration Successful!");
+                    // আপনি চাইলে সফল সাবমিশনের পর ফর্ম রিসেট করতে পারেন:
+                    // form.reset();
+                } else {
+                    console.log("Form is invalid.");
+                }
+            });
+
+            function validateForm() {
+                let valid = true; // ধরি ফর্মটি ভ্যালিড
+                
+                // প্রথমে সব এরর মেসেজ হাইড করা
+                hideAllErrors();
+
+                // 1. Student Name Check (শুধু খালি কি না চেক করা)
+                if (studentName.value.trim() === "") {
+                    showError(nameError, "Name is required.");
+                    valid = false;
+                }
+
+                // 2. Father's Name Check
+                if (fatherName.value.trim() === "") {
+                    showError(fatherNameError, "Father's name is required.");
+                    valid = false;
+                }
+
+                // 3. Mobile No. Check (Regex দিয়ে ফরম্যাট চেক)
+                const mobileRegex = /^01[3-9]\d{8}$/; // 11 ডিজিট, 01 দিয়ে শুরু
+                if (mobileNo.value.trim() === "") {
+                    showError(mobileError, "Mobile number is required.");
+                    valid = false;
+                } else if (!mobileRegex.test(mobileNo.value.trim())) {
+                    showError(mobileError, "Must be a valid 11-digit Bangladeshi number (e.g., 017...).");
+                    valid = false;
+                }
+
+                // 4. Department Check
+                if (department.value === "") {
+                    showError(deptError, "Please select a department.");
+                    valid = false;
+                }
+
+                // 5. Batch No. Check
+                if (batchNo.value.trim() === "") {
+                    showError(batchError, "Batch is required.");
+                    valid = false;
+                }
+
+                // 6. Section Check
+                if (section.value.trim() === "") {
+                    showError(sectionError, "Section is required.");
+                    valid = false;
+                }
+
+                // 7. Roll No. Check (Regex দিয়ে ফরম্যাট চেক)
+                // ফরম্যাট: ৩/৪টি বড় হাতের অক্ষর, স্পেস, ৭টি সংখ্যা (e.g., CSE 0290761 or BBA 1234567)
+                const rollRegex = /^[A-Z]{3,4}\s\d{7}$/; 
+                if (rollNo.value.trim() === "") {
+                    showError(rollError, "Roll number is required.");
+                    valid = false;
+                } else if (!rollRegex.test(rollNo.value.trim())) {
+                    showError(rollError, "Format must be: DEPT 1234567 (e.g., CSE 0290761)");
+                    valid = false;
+                }
+
+                return valid; // ফর্ম ভ্যালিড হলে 'true' অথবা ইনভ্যালিড হলে 'false' রিটার্ন করা
+            }
+
+            // এরর দেখানোর হেল্পার ফাংশন
+            function showError(errorElement, message) {
+                errorElement.textContent = message;
+                errorElement.style.display = "block";
+            }
+
+            // সব এরর লুকানোর হেল্পার ফাংশন
+            function hideAllErrors() {
+                nameError.style.display = "none";
+                fatherNameError.style.display = "none";
+                mobileError.style.display = "none";
+                deptError.style.display = "none";
+                batchError.style.display = "none";
+                sectionError.style.display = "none";
+                rollError.style.display = "none";
+            }
+        });
+    </script>
+
 </body>
 </html>

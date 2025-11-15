@@ -1,3 +1,26 @@
 * {
   font-family: "Inter", sans-serif;
 }
+
+        body {
+            font-family: "Inter", sans-serif;
+        }
+        /* পেজ লোড অ্যানিমেশন */
+        .form-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* এরর মেসেজের জন্য স্টাইল */
+        .error-message {
+            color: red;
+            font-size: 0.875rem; /* text-sm */
+            margin-top: 0.25rem; /* mt-1 */
+            display: none; /* ডিফল্টভাবে লুকানো থাকবে */
+        }
