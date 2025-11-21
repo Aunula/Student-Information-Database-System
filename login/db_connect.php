@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "root"; // XAMPP-এর ডিফল্ট ইউজারনেম
-$password = "";     // XAMPP-এর ডিফল্ট পাসওয়ার্ড (খালি)
-$dbname = "user_db"; // আপনার তৈরি করা ডাটাবেসের নাম
+$username = "root"; 
+$password = "";    
+$dbname = "user_db"; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

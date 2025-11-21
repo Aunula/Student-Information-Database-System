@@ -23,16 +23,12 @@ if ($stmt->num_rows > 0) {
     $stmt->bind_result($name, $hashed_password);
     $stmt->fetch();
 
-    // পাসওয়ার্ড ভেরিফাই করা
     if (password_verify($password, $hashed_password)) {
-        // পাসওয়ার্ড সঠিক
         echo json_encode(['success' => true, 'message' => 'Welcome back, ' . $name . '!']);
     } else {
-        // পাসওয়ার্ড ভুল
         echo json_encode(['success' => false, 'message' => 'Invalid email or password.']);
     }
 } else {
-    // ইউজার পাওয়া যায়নি
     echo json_encode(['success' => false, 'message' => 'Invalid email or password.']);
 }
 

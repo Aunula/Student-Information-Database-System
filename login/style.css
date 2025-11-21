@@ -36,7 +36,7 @@ h1 {
   bottom: 1em;
   right: 2em;
   border-radius: 40px;
-  background: #ff4b2b;
+  background: #5915ed;
   color: #fff;
   font-size: 1em;
   font-weight: bold;
@@ -124,7 +124,7 @@ button {
   display: block;
   margin: 1em auto;
   border-radius: 40px;
-  border: 1px solid #ff4b2b;
+  border: 1px solid #362bffffff;
   background: #ff4b2b;
   color: #fff;
   font-size: 1.2em;
@@ -227,12 +227,12 @@ button:focus {
 }
 
 .front {
-  background: linear-gradient(-45deg, #FFCF00 0%, #FC4F4F 100%) no-repeat 0 0/200%;
+  background: linear-gradient(-45deg, #5915ed 0%, #788ee5 100%) no-repeat 0 0/200%;
   z-index: 3;
 }
 
 .back {
-  background: linear-gradient(135deg, #FC4F4F 0%, #FFCF00 100%) no-repeat 0 0/200%;
+  background: linear-gradient(135deg, #5915ed 0%, #788ee5 100%) no-repeat 0 0/200%;
   z-index: 2;
 }
 .back .content {

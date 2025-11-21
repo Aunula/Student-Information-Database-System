@@ -14,9 +14,39 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Error Message Styling */
+        .error-message {
+            color: #ef4444; /* Tailwind red-500 */
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none; /* ডিফল্টভাবে লুকানো থাকবে */
+        }
+        /* Form Animation (Fade-in effect) */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .form-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        /* Input Focus Glow Effect */
+        .input-bordered:focus, .select-bordered:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* blue-500 with opacity */
+            border-color: #3b82f6; /* blue-500 */
+        }
+        /* Input error style */
+        .input-error {
+            border-color: #ef4444 !important; /* লাল বর্ডার */
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-100">
+    
     <header>
         <div class="navbar sticky top-0 z-50 shadow-md bg-gradient-to-r from-white to-blue-100 px-10">
 
@@ -50,57 +80,73 @@
                     <li><a href="Information/faculty.html">Faculty</a></li>
                     <li><a href="Information/classroutine.html">Class Routine</a></li>
                     <li><a href="Information/Notice.html">Notice</a></li>
-
                     <li><a href="Information/Rating.html">Rating</a></li>
                 </ul>
             </div>
 
             <div class="navbar-end">
-                <a href="../index.html" class="btn btn-primary text-white">Logout</a>
+                <a href="../login/login.html" class="btn btn-primary text-white">Logout</a>
             </div>
         </div>
     </header>
-
-    <main class="flex justify-center p-6 md:p-10 bg-gray-50 min-h-screen">
+    <main class="flex justify-center p-4 sm:p-6 md:p-10 min-h-screen bg-gradient-to-br from-gray-100 to-blue-50">
         
-        <div class="w-full max-w-4xl form-fade-in">
-            <H1 class="font-bold text-3xl text-center mb-2 text-gray-800">Student Registration</H1>
-            <p class="text-center text-gray-600 mb-8">Please fill out the form below to register.</p>
+        <div class="w-full max-w-5xl form-fade-in">
+            <H1 class="font-extrabold text-4xl text-center mb-2 text-blue-800 tracking-wide">
+                <span class="text-blue-500">📝</span> Student Registration
+            </H1>
+            <p class="text-center text-gray-600 mb-8 font-medium">Please fill out the form below to register for the upcoming semester.</p>
 
-            <div class="card bg-base-100 shadow-xl border border-gray-200">
-                <div class="card-body p-6 md:p-10">
+            <div class="card bg-white shadow-2xl border border-blue-200/50">
+                <div class="card-body p-6 sm:p-8 md:p-12">
                     
-                    <form id="registrationForm" action="/register-student-backend-url" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                    <form id="registrationForm" action="process_registration.php" method="POST" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
 
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text font-medium">Student Name</span>
+                                <span class="label-text font-semibold text-gray-700">Student Name <span class="text-red-500">*</span></span>
                             </label>
-                            <input type="text" id="student_name" name="student_name" placeholder="Enter full name" class="input input-bordered w-full" />
-                            <span id="name_error" class="error-message">Name is required.</span>
+                            <input type="text" id="student_name" name="student_name" placeholder="Enter full name" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
+                            <span id="name_error" class="error-message"></span>
                         </div>
 
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text font-medium">Father's Name</span>
+                                <span class="label-text font-semibold text-gray-700">Father's Name <span class="text-red-500">*</span></span>
                             </label>
-                            <input type="text" id="father_name" name="father_name" placeholder="Enter father's full name" class="input input-bordered w-full" />
-                            <span id="father_name_error" class="error-message">Father's name is required.</span>
+                            <input type="text" id="father_name" name="father_name" placeholder="Enter father's full name" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
+                            <span id="father_name_error" class="error-message"></span>
                         </div>
 
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text font-medium">Mobile No.</span>
+                                <span class="label-text font-semibold text-gray-700">Mother's Name <span class="text-red-500">*</span></span>
                             </label>
-                            <input type="tel" id="mobile_no" name="mobile_no" placeholder="e.g., 01700000000" class="input input-bordered w-full" />
-                            <span id="mobile_error" class="error-message">Must be 11 digits (e.g., 017...).</span>
+                            <input type="text" id="mother_name" name="mother_name" placeholder="Enter mother's full name" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
+                            <span id="mother_name_error" class="error-message"></span>
                         </div>
 
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text font-medium">Department Name</span>
+                                <span class="label-text font-semibold text-gray-700">Mobile No. <span class="text-red-500">*</span></span>
                             </label>
-                            <select id="department" name="department" class="select select-bordered w-full">
+                            <input type="tel" id="mobile_no" name="mobile_no" placeholder="e.g., 01700000000" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
+                            <span id="mobile_error" class="error-message"></span>
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-semibold text-gray-700">Date of Birth <span class="text-red-500">*</span></span>
+                            </label>
+                            <input type="date" id="dob" name="dob" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
+                            <span id="dob_error" class="error-message"></span>
+                        </div>
+                        
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text font-semibold text-gray-700">Department Name <span class="text-red-500">*</span></span>
+                            </label>
+                            <select id="department" name="department" class="select select-bordered w-full transition duration-300 hover:border-blue-400">
                                 <option disabled selected value="">Select Department</option>
                                 <option value="CSE">Computer Science and Engineering (CSE)</option>
                                 <option value="EEE">Electrical and Electronic Engineering (EEE)</option>
@@ -108,38 +154,41 @@
                                 <option value="ENG">English</option>
                                 <option value="LAW">Law</option>
                             </select>
-                            <span id="dept_error" class="error-message">Please select a department.</span>
+                            <span id="dept_error" class="error-message"></span>
                         </div>
 
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text font-medium">Batch No.</span>
+                                <span class="label-text font-semibold text-gray-700">Batch No. <span class="text-red-500">*</span></span>
                             </label>
-                            <input type="text" id="batch_no" name="batch_no" placeholder="e.g., 29" class="input input-bordered w-full" />
-                            <span id="batch_error" class="error-message">Batch is required.</span>
+                            <input type="number" id="batch_no" name="batch_no" placeholder="e.g., 29" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
+                            <span id="batch_error" class="error-message"></span>
                         </div>
 
                         <div class="form-control">
                             <label class="label">
-                                <span class="label-text font-medium">Section</span>
+                                <span class="label-text font-semibold text-gray-700">Section <span class="text-red-500">*</span></span>
                             </label>
-                            <input type="text" id="section" name="section" placeholder="e.g., A" class="input input-bordered w-full" />
-                            <span id="section_error" class="error-message">Section is required.</span>
+                            <input type="text" id="section" name="section" placeholder="e.g., A or B" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
+                            <span id="section_error" class="error-message"></span>
                         </div>
 
-                        <div class="form-control md:col-span-2">
+                        <div class="form-control md:col-span-2 lg:col-span-3">
                             <label class="label">
-                                <span class="label-text font-medium">Roll No.</span>
+                                <span class="label-text font-semibold text-gray-700">Roll No. <span class="text-red-500">*</span></span>
                             </label>
-                            <input type="text" id="roll_no" name="roll_no" placeholder="e.g., CSE 0290761" class="input input-bordered w-full" />
+                            <input type="text" id="roll_no" name="roll_no" placeholder="e.g., CSE 0290761" class="input input-bordered w-full transition duration-300 hover:border-blue-400" />
                             <label class="label">
-                                <span class="label-text-alt">Include department prefix (e.g., CSE 0290761)</span>
+                                <span class="label-text-alt text-gray-500">Format: DEPT XXXX XXX (e.g., CSE 0290761)</span>
                             </label>
-                            <span id="roll_error" class="error-message">Format must be: DEPT 1234567 (e.g., CSE 0290761)</span>
+                            <span id="roll_error" class="error-message"></span>
                         </div>
 
-                        <div class="form-control mt-6 md:col-span-2 text-center">
-                            <button type="submit" class="btn btn-primary btn-wide text-white text-lg transition-all duration-300 hover:scale-105 hover:shadow-lg">
+                        <div class="form-control mt-6 md:col-span-2 lg:col-span-3 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg text-white font-bold tracking-wider transition-all duration-500 ease-in-out transform hover:scale-[1.02] shadow-xl hover:shadow-blue-500/50">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
                                 Submit Registration
                             </button>
                         </div>
@@ -151,130 +200,162 @@
     </main>
 
     <script>
-        // DOMContentLoaded ইভেন্ট নিশ্চিত করে যে HTML সম্পূর্ণ লোড হওয়ার পরই জাভাস্ক্রিপ্ট রান করবে।
         document.addEventListener("DOMContentLoaded", () => {
-            
-            // ফর্ম এবং ইনপুট ফিল্ডগুলোকে সিলেক্ট করা
             const form = document.getElementById("registrationForm");
+            // ইনপুট ফিল্ড সিলেক্ট করা
             const studentName = document.getElementById("student_name");
             const fatherName = document.getElementById("father_name");
+            const motherName = document.getElementById("mother_name");
             const mobileNo = document.getElementById("mobile_no");
+            const dob = document.getElementById("dob");
             const department = document.getElementById("department");
             const batchNo = document.getElementById("batch_no");
             const section = document.getElementById("section");
             const rollNo = document.getElementById("roll_no");
 
-            // এরর মেসেজ দেখানোর স্থানগুলো সিলেক্ট করা
+            // এরর মেসেজ সিলেক্ট করা
             const nameError = document.getElementById("name_error");
             const fatherNameError = document.getElementById("father_name_error");
+            const motherNameError = document.getElementById("mother_name_error");
             const mobileError = document.getElementById("mobile_error");
+            const dobError = document.getElementById("dob_error");
             const deptError = document.getElementById("dept_error");
             const batchError = document.getElementById("batch_error");
             const sectionError = document.getElementById("section_error");
             const rollError = document.getElementById("roll_error");
 
-            // 'submit' ইভেন্টে ভ্যালিডেশন ফাংশন কল করা
             form.addEventListener("submit", (event) => {
-                // প্রথমে ডিফল্ট সাবমিট বন্ধ করা
-                event.preventDefault(); 
-                
-                // ভ্যালিডেশন চেক শুরু করা
+                event.preventDefault(); // ডিফল্ট সাবমিট বন্ধ করা
                 let isValid = validateForm(); 
-
-                // যদি সবকিছু ঠিক থাকে (isValid == true), তবেই ফর্ম সাবমিট করা
+                
                 if (isValid) {
-                    console.log("Form is valid. Submitting...");
-                    // এখানে আপনি চাইলে form.submit() কল করতে পারেন অথবা AJAX দিয়ে ডেটা পাঠাতে পারেন।
-                    // রিয়েল সাবমিশনের জন্য নিচের লাইনটি আনকমেন্ট করুন:
-                    // form.submit(); 
-                    
-                    // আপাতত শুধু একটি অ্যালার্ট দেখাচ্ছি যে ফর্ম ভ্যালিড।
-                    alert("Registration Successful!");
-                    // আপনি চাইলে সফল সাবমিশনের পর ফর্ম রিসেট করতে পারেন:
-                    // form.reset();
+                    // ফর্ম ভ্যালিড হলে
+                    console.log("Form is valid. Submitting to PHP...");
+                    // আসল সাবমিশনের জন্য:
+                    form.submit(); 
                 } else {
+                    // ফর্ম ইনভ্যালিড হলে
                     console.log("Form is invalid.");
+                    // প্রথম যে এরর মেসেজটি দেখা যাচ্ছে, সেখানে স্ক্রল করা
+                    const firstError = document.querySelector('.error-message[style*="block"]');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
                 }
             });
 
             function validateForm() {
-                let valid = true; // ধরি ফর্মটি ভ্যালিড
-                
-                // প্রথমে সব এরর মেসেজ হাইড করা
-                hideAllErrors();
+                let valid = true; 
+                hideAllErrors(); // প্রথমে সব এরর হাইড করা
 
-                // 1. Student Name Check (শুধু খালি কি না চেক করা)
+                // 1. Student Name
                 if (studentName.value.trim() === "") {
-                    showError(nameError, "Name is required.");
+                    showError(nameError, "Student Name is required.", studentName);
                     valid = false;
                 }
 
-                // 2. Father's Name Check
+                // 2. Father's Name
                 if (fatherName.value.trim() === "") {
-                    showError(fatherNameError, "Father's name is required.");
+                    showError(fatherNameError, "Father's Name is required.", fatherName);
                     valid = false;
                 }
 
-                // 3. Mobile No. Check (Regex দিয়ে ফরম্যাট চেক)
-                const mobileRegex = /^01[3-9]\d{8}$/; // 11 ডিজিট, 01 দিয়ে শুরু
+                // 3. Mother's Name
+                if (motherName.value.trim() === "") {
+                    showError(motherNameError, "Mother's Name is required.", motherName);
+                    valid = false;
+                }
+
+                // 4. Mobile No.
+                const mobileRegex = /^01[3-9]\d{8}$/; 
                 if (mobileNo.value.trim() === "") {
-                    showError(mobileError, "Mobile number is required.");
+                    showError(mobileError, "Mobile number is required.", mobileNo);
                     valid = false;
                 } else if (!mobileRegex.test(mobileNo.value.trim())) {
-                    showError(mobileError, "Must be a valid 11-digit Bangladeshi number (e.g., 017...).");
+                    showError(mobileError, "Must be a valid 11-digit Bangladeshi number (e.g., 017...).", mobileNo);
                     valid = false;
                 }
 
-                // 4. Department Check
+                // 5. Date of Birth
+                if (dob.value === "") {
+                    showError(dobError, "Date of Birth is required.", dob);
+                    valid = false;
+                } else {
+                    // বয়স কমপক্ষে ১৬ বছর কিনা চেক করা
+                    const selectedDate = new Date(dob.value);
+                    const today = new Date();
+                    const minAgeDate = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
+                    if (selectedDate > minAgeDate) {
+                        showError(dobError, "Student must be at least 16 years old to register.", dob);
+                        valid = false;
+                    }
+                }
+
+                // 6. Department
                 if (department.value === "") {
-                    showError(deptError, "Please select a department.");
+                    showError(deptError, "Please select a department.", department);
                     valid = false;
                 }
 
-                // 5. Batch No. Check
-                if (batchNo.value.trim() === "") {
-                    showError(batchError, "Batch is required.");
+                // 7. Batch No.
+                if (batchNo.value.trim() === "" || isNaN(batchNo.value) || parseInt(batchNo.value) <= 0) {
+                    showError(batchError, "Batch number is required and must be valid.", batchNo);
                     valid = false;
                 }
 
-                // 6. Section Check
+                // 8. Section
                 if (section.value.trim() === "") {
-                    showError(sectionError, "Section is required.");
+                    showError(sectionError, "Section is required.", section);
                     valid = false;
                 }
 
-                // 7. Roll No. Check (Regex দিয়ে ফরম্যাট চেক)
-                // ফরম্যাট: ৩/৪টি বড় হাতের অক্ষর, স্পেস, ৭টি সংখ্যা (e.g., CSE 0290761 or BBA 1234567)
+                // 9. Roll No.
+                // DEPT 1234567 format: 3 or 4 letters, followed by space, followed by 7 digits
                 const rollRegex = /^[A-Z]{3,4}\s\d{7}$/; 
                 if (rollNo.value.trim() === "") {
-                    showError(rollError, "Roll number is required.");
+                    showError(rollError, "Roll number is required.", rollNo);
                     valid = false;
                 } else if (!rollRegex.test(rollNo.value.trim())) {
-                    showError(rollError, "Format must be: DEPT 1234567 (e.g., CSE 0290761)");
+                    showError(rollError, "Format must be: DEPT 1234567 (e.g., CSE 0290761)", rollNo);
                     valid = false;
                 }
 
-                return valid; // ফর্ম ভ্যালিড হলে 'true' অথবা ইনভ্যালিড হলে 'false' রিটার্ন করা
+                return valid;
             }
 
-            // এরর দেখানোর হেল্পার ফাংশন
-            function showError(errorElement, message) {
+            // এরর দেখানোর ফাংশন
+            function showError(errorElement, message, inputElement) {
                 errorElement.textContent = message;
                 errorElement.style.display = "block";
+                inputElement.classList.add("input-error"); // ইনপুট বর্ডার লাল করা
             }
 
-            // সব এরর লুকানোর হেল্পার ফাংশন
+            // সব এরর লুকানোর ফাংশন
             function hideAllErrors() {
-                nameError.style.display = "none";
-                fatherNameError.style.display = "none";
-                mobileError.style.display = "none";
-                deptError.style.display = "none";
-                batchError.style.display = "none";
-                sectionError.style.display = "none";
-                rollError.style.display = "none";
+                const errors = [nameError, fatherNameError, motherNameError, mobileError, dobError, deptError, batchError, sectionError, rollError];
+                errors.forEach(err => {
+                    err.style.display = "none";
+                    
+                    // ইনপুট এলিমেন্ট খুঁজে বের করে error ক্লাস সরানো
+                    const inputId = err.id.replace('_error', '');
+                    const inputElement = document.getElementById(inputId);
+                    if(inputElement) {
+                        inputElement.classList.remove("input-error"); // ইনপুট বর্ডার থেকে লাল দাগ সরানো
+                    }
+                });
             }
+
+            // রিয়েল-টাইম ভ্যালিডেশন (লিখার সাথে সাথে)
+            [studentName, fatherName, motherName, mobileNo, dob, department, batchNo, section, rollNo].forEach(input => {
+                // 'input' ইভেন্ট টেক্সট ফিল্ডের জন্য, 'change' ইভেন্ট সিলেক্ট/ডেট/ফাইল ফিল্ডের জন্য
+                const eventType = (input.tagName === 'SELECT' || input.type === 'date') ? 'change' : 'input';
+                
+                input.addEventListener(eventType, () => {
+                    validateForm(); // ইনপুট পরিবর্তনের সাথে সাথে ভ্যালিডেট করা
+                });
+            });
+
         });
     </script>
-
 </body>
 </html>
